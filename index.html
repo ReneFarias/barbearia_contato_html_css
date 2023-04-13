@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Barbearia Alura</title>
+    <!-- esse arquivo tira as margens desnesseçarias do css, é um arquivo padrão, a ordem importa, pois se estivesse depois do css da página iria limpar nosso conteúdo -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- tag header = cabeçalho, podemos minimizar clicando no tracinho para guardar e partimos para outra parte do site -->
+    <header>
+        <!-- essa div caixa é o que vai ficar no meio centralizando todo conteúdo -->
+        <div class="caixa">
+            <!-- h1 é o titulo onde dentro temos a nossa imagem logo, e alt serve como acessibilidade, especificando o que se trata, e se não carregada apesenta ao usuário o texto escrito -->
+            <h1><img src="logo.png" alt="Logo da Barbearia Alura"></h1>
+            <!-- tag nav = navegação, recebe a lista e os itens, tag predefinida do html evitando uso de classe -->
+            <nav>
+                    <ul>
+                        <!-- a tag a é = ancora, linka o texto a uma página pelo caminho href="caminho", tem que fechar com </a>, é muito usado em menu de navegação -->
+                        <!-- para mexer no menu e estilizar precisamos mudar o display, temos o inline e o block, o inline o conteúdo é do tamanho que ta ali, quando é do tipo block o tamanho sempre é 100% da página, o que é o caso do nosso menu = block,-->
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="index.html">Contato</a></li>
+                    </ul>
+                </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- tag para criação de um formulario -->
+        <form>
+            <!-- label é a etiqueta para falar que dados entrar no input, geralmente sempre vem acompanhado do input -->
+            <!-- o for pega o id e, e quando clica no nome e sobrenome, seleciona o campo input para entrar com os dados -->
+            <label for="nomesobrenome">Nome e Sobrenome</label>
+            <!-- input = entrada para receber dados do usuario = " do tipo texto " geralmente tem o identificador no input id -->
+            <!-- o atributo required serve para o campo sejá de preenchimento obrigatório para o usuário, só permitindo o envio quando preenchido -->
+            <input type="text" id="nomesobrenome" class="input-padrao" required>
+            <!-- ATENÇÃO pois colocamos esse input's em uma classe para resolvermos erros nos input type radio -->
+
+            <!-- Observe o type="TIPO" do input, o campo é email mas a entrada do usuario "o teclado" será para texto, IMPORTANTE deixar claro que,
+            nos celulares o teclado muda dependendo do tipo do input informado no html, pois temos os tipos: text = aciona o teclado no celular para texto, email = aciona o teclado no celular para preencher email, tel = aciona o teclado no celular para inserir Nº de telefone, number = aciona o teclado no celular para preencher cpf ou cep, password = aciona o teclado no celular para preencher senhas, ainda temos os input's: data, datatime, month, e search. -->
+            <label for="email">E-mail</label>
+            <!-- o atributo required serve para o campo sejá de preenchimento obrigatório para o usuário, só permitindo o envio quando preenchido -->
+            <!-- o placeholder serve como texto de exemplo estándo cinza e dano uma ideia de como preencher o input -->
+            <input type="email" id="email" class="input-padrao" required placeholder="seuemail@dominio.com">
+            
+            <label for="telefone">Telefone</label>
+            <!-- o placeholder serve como texto de exemplo estándo cinza e dano uma ideia de como preencher o input -->
+            <input type="tel" id="telefone" class="input-padrao" required placeholder="(XX) XXXXX-XXXX">
+
+           
+
+            <!-- como visto sempre usar o for com id para ligar os campos e selecionar o a entrada clicando no label menssagem, na etiqueta nesse caso -->
+            <label for="menssagem">Menssagem</label>
+            <!-- essa tag serve para entrada de textos maiores, definimos colunas="70" linhas="linhas" -->
+            <textarea cols="70" rows="10" id="menssagem" class="input-padrao" required></textarea >
+            <!-- fieldset é o agrupamento de campos que receberam dados, usase essa tag e evita usar div, por exemplo dados de cartão de crédito -->
+            <fieldset>
+                <!-- dentro de fieldset não temos p = paragrafos, e sim legend que seria o titulo -->
+                <legend>Como prefere nosso contato?</legend>
+                <!-- o for no input type radio quando clicado seleciona o botão radio -->
+                <!-- colocamos o input que antes estava em uma linha a parte, dentro do label depois do for como pode ver, fica mais organizado e olhe que antes o radio button estava mais em baixo, depois de colocar o input dentro do label subiu mais um pouco -->
+                <label for="radio-email"><input type="radio" name="contato" value="email" id="radio-email">Email</label>
+                <!-- type="radio = botão redondo de seleção, IMPORTANTE colocar o name no input para agrupar os radio button's e só assim apenas 1 ficar selecionado "
+                <input type="radio" name="contato" value="email" id="radio-email"> -->
+
+                <label for="radio-telefone"><input type="radio" name="contato" value="telefone" id="radio-telefone">
+                    Telefone</label>
+                <!-- para já deixarmos o radio button marcado dano preferência ao usuário colocamos a palavra "checked" -->
+                <label for="radio-whatsapp"><input type="radio" name="contato" value="whatsapp" id="radio-whatsapp" checked>Whatsapp</label>
+                
+            </fieldset>
+            <!-- fieldset é o agrupamento de campos que receberam dados, usase essa tag e evita usar div, por exemplo dados de cartão de crédito -->
+            <fieldset>
+                <!-- dentro de fieldset não temos p = paragrafos, e sim legend que seria o titulo -->
+                <legend>Qual horário prefere ser atendido?</legend>
+                <!-- selecione = tag tipo de seleção, onde dentro colocamos as option = opções; importante deixar claro que cada navegador e dispositivo mostra de uma forma diferente ao ususário -->
+                <select>
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Noite</option>
+                </select>
+            </fieldset>
+
+            <!-- podemos já inserir o input dentro do label poupando o uso do for; checkbox é a caixinha de checagem com v -->
+            <!-- para já deixarmos o checkbox marcado dano preferência ao usuário colocamos a palavra "checked" -->
+            <label class="checkbox"><input type="checkbox" checked>Gostaria de receber nossas novidades por email?</label>
+             <!-- entrada="do tipo enviar" já o value serve para o nome do botão seja sempre o colocado entre "" -->
+             <input type="submit" value="Enviar Formulário" class="enviar">
+             
+
+        </form>
+
+        <!-- a tag table = para fazermos uma tabela; para fazer uma tabela complexa é mais celulas dentro de mais linhas -->
+        <table>
+            <!-- head da tabela, tag serve de div para tabela -->
+            <thead>
+                <!-- tr = linha de uma tabela -->
+                <tr>
+                    <!-- td = celula de uma tabela -->
+                    <td>Dia</td>
+                    <td>Horário</td>
+                </tr>
+            </thead>
+            <!-- body da tabela, tag serve de corpo para tabela, lembrando que também temos tfooter para rodape -->
+            <tbody>   
+                <tr>
+                    <td>Segunda</td>
+                    <td>8h ~ 20h</td>
+                </tr>
+                <tr>
+                    <td>Quarta</td>
+                    <td>8h ~ 20h</td>
+                </tr>
+                <tr>
+                    <td>Sexta</td>
+                    <td>8h ~ 20h</td>
+                </tr>
+            </tbody>
+            <!--
+            <tr>
+                <td colspan="5">Rio de Janeiro</td> 
+            </tr>
+            Por exemplo, quando uma linha, que deveria ter 5 células, passa a mostrar só "uma célula".
+            Esse efeito é conseguido através da propriedade colspan=X, onde X é o número de células que você quer agrupar.
+            -->
+        </table>
+    </main>
+
+    <footer><!-- dentro temos a nossa imagem logo-branco, e alt serve como acessibilidade, especificando o que se trata, e se não carregada apesenta ao usuário o texto escrito -->
+        <img src="/logo-branco.png" alt="Logo da Barbearia Alura">
+        <!-- para usar o c do copyright precisamos pegar no site unicode-table.com, unicode é uma linguagem universal dos simbolos, essa forma usada é de entidade -->
+        <p class="copyright">&copy;Copyright Barbearia Alura - 2023</p>
+    </footer>
+</body>
+</html>
